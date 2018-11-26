@@ -1,0 +1,68 @@
+.section {
+  .musicPlayer & {
+    margin: 20px 0;
+  }
+  .section_title {
+    padding: 0 15px;
+    color: #333;
+  }
+  .section_anchor {
+    display: block;
+  }
+  .recents {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 15px 5px;
+    margin-top: 15px;
+    white-space: nowrap;
+  }
+  .recent {
+    & {
+      display: inline-block;
+      width: 100px;
+    }
+    & + .recent {
+      margin-left: 10px;
+    }
+  }
+  .recent_profile {
+    & {
+      position: relative;
+      display: block;
+      width: 100px;
+      height: 100px;
+      border-radius: 2px;
+    }
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: inherit;
+      content: '';
+    }
+  }
+  .recent_img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .recent_title {
+    @include ellipsis;
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #242424;
+  }
+  .recent_artist {
+    @include ellipsis;
+    display: block;
+    margin-top: 3px;
+    font-size: 14px;
+    color: #9e9e9e;
+  }
+}
