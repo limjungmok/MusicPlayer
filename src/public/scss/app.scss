@@ -6,3 +6,36 @@
 @import "common/placeholders";
 @import "common/mixins";
 @import "common/sprites";
+
+// components
+@import "import/components/Header";
+@import "import/components/Footer";
+
+html, body, #app {
+  height: 100%;
+}
+.musicPlayer {
+  & {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .header {
+    flex-shrink: 1;
+    height: 48px;
+    background-color: #f5f7f8;
+  }
+  .wrap {
+    flex-grow: 1;
+    background-color: orange;
+  }
+  .footer {
+    flex-shrink: 1;
+    height: 48px;
+    background-color: #f5f7f8;
+  }
+}
+
+// container
+@import "import/container/Main";
+@import "import/container/PlayList";
