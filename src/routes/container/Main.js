@@ -4,6 +4,7 @@ import Header from '../components/Header';
 // import Footer from '../components/Footer';
 import RecentMusicList from '../components/RecentMusicList';
 import GenreList from '../components/GenreList';
+import RecommendList from '../components/RecommendList'
 import MusicPlayer from '../components/MusicPlayer';
 
 import RecentMusicJSONArray from '../../database/recentMusicArray.json';
@@ -18,7 +19,8 @@ class Main extends Component {
       isScrolled: false,
       isMusicPlayerListOpend: false,
       recentMusicArray: [],
-      genreArray: []
+      genreArray: [],
+      recommendArray: [...Array(12)]
     };
     this.handleScroll = this.handleScroll.bind(this);
     this.fetchRecentMusicArray = this.fetchRecentMusicArray.bind(this);
@@ -64,7 +66,7 @@ class Main extends Component {
             <h2 className="section_title">
               <a 
                 href={'#'} 
-                className="section_anchor">최신음악
+                className="section_anchor">최신 음악
               </a>
             </h2>
             {this.state.recentMusicArray && (
@@ -85,6 +87,17 @@ class Main extends Component {
                 genreArray = {this.state.genreArray}
               />
             )}
+          </section>
+          <section className="section">
+            <h2 className="section_title">
+                <a 
+                  href={'#'} 
+                  className="section_anchor">추천 앨범
+                </a>
+            </h2>
+            <RecommendList
+              recommendArray = {this.state.recommendArray}
+             />
           </section>
           <MusicPlayer 
             handleOpenMusicList = {this.handleOpenMusicList}

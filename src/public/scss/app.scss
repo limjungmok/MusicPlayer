@@ -9,10 +9,11 @@
 
 // components
 @import "import/components/Footer";
-@import "import/components/GenreList.scss";
+@import "import/components/GenreList";
 @import "import/components/Header";
 @import "import/components/MusicPlayer";
-@import "import/components/RecentMusicList.scss";
+@import "import/components/RecentMusicList";
+@import "import/components/RecommendList";
 
 html, body, #app {
   height: 100%;
