@@ -10,6 +10,8 @@
 // components
 @import "import/components/Header";
 @import "import/components/Footer";
+@import "import/components/RecentMusicList.scss";
+@import "import/components/GenreList.scss";
 
 html, body, #app {
   height: 100%;
@@ -23,19 +25,20 @@ html, body, #app {
   .header {
     flex-shrink: 1;
     height: 48px;
-    background-color: #5398f5;
+    background-color: #000;
   }
   .wrap {
     flex-grow: 1;
-    background-color: #f5f7f8;
+    background-color: #000;
   }
   .footer {
     flex-shrink: 1;
     height: 48px;
-    background-color: #5398f5;
+    background-color: #000;
   }
 }
 
 // container
 @import "import/container/Main";
 @import "import/container/PlayList";
+
