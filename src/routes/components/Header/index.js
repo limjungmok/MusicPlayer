@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
-class Header extends Component {
-  render() {
-    return (
-      <header className="header">헤더</header>
-    );
-  }
+const Header = ({isScrolled}) => {
+  console.log({isScrolled});
+  return (
+    <header className={`header ${isScrolled ? 'is_fixed' : ''}`}>
+      <a href="#" className="logo"></a>
+    </header>
+  );
 }
 
 export default Header;

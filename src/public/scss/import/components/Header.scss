@@ -1,0 +1,28 @@
+.header {
+  .musicPlayer & {
+    & {
+      padding: 0 10px;
+    }
+    &.is_fixed {
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #000;
+    }
+    &.is_fixed + .wrap {
+      padding-top: 48px;
+    }
+    .logo {
+      & {
+        display: inline-block;
+      }
+      &::before {
+        @include get-sprite(logo_2, $sp_app);
+        vertical-align: top;
+        content: '';
+      }
+    }
+  }
+}

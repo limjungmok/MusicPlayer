@@ -14,19 +14,28 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isScrolled: false,
       recentMusicArray: [],
       genreArray: []
     };
+    this.handleScroll = this.handleScroll.bind(this);
     this.fetchRecentMusicArray = this.fetchRecentMusicArray.bind(this);
     this.fetchGenreArray = this.fetchGenreArray.bind(this);
   }
 
   async componentDidMount() {
-    // fetch recentMusicArray
+    window.addEventListener('scroll', this.handleScroll);
     const recentMusicArray = await this.fetchRecentMusicArray();
     const genreArray = await this.fetchGenreArray();
+
     this.setState({ recentMusicArray });
     this.setState({ genreArray });
+  }
+
+  handleScroll(e) {
+    window.scrollY > 0 
+    ? this.setState({ isScrolled: true }) 
+    : this.setState({ isScrolled: false });
   }
 
   fetchRecentMusicArray() {
@@ -40,7 +49,9 @@ class Main extends Component {
   render() {
     return (
       <div className="musicPlayer">
-        <Header />
+        <Header 
+          isScrolled={this.state.isScrolled}
+        />
         <div className="wrap">
           <section className="section">
             <h2 className="section_title">
