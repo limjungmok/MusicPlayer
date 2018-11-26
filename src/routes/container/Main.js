@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import RecentMusicList from '../components/RecentMusicList';
+import RecentMusicJSONArray from '../../database/recentMusicArray.json';
 import util from '../../utils/util';
 
 class Main extends Component {
@@ -9,10 +11,17 @@ class Main extends Component {
     this.state = {
       recentMusicArray: []
     };
+    this.fetchRecentMusicArray = this.fetchRecentMusicArray.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     // fetch recentMusicArray
+    const recentMusicArray = await this.fetchRecentMusicArray();
+    this.setState({ recentMusicArray });
+  }
+
+  fetchRecentMusicArray() {
+    return RecentMusicJSONArray;
   }
 
   render() {
@@ -26,25 +35,11 @@ class Main extends Component {
                 href={'#'} 
                 className="section_anchor">최신음악</a>
             </h2>
-            <div className="recents">
-              {[...Array(10)].map((recent, i) => (
-                <a 
-                  href="#" 
-                  className="recent"
-                  key={i}
-                  >
-                  <figure className="recent_profile">
-                    <img 
-                      src={''}
-                      className="recent_img"
-                      alt='' 
-                    />
-                  </figure>
-                  <b className="recent_title">{'타이틀12341234'}</b>
-                  <i className="recent_artist">{'아티스트12342143'}</i>
-                </a>
-              ))}
-            </div>
+            {this.state.recentMusicArray && (
+              <RecentMusicList
+                recentMusicArray = {this.state.recentMusicArray}
+              />
+            )}
           </section>
           <section className="section"></section>
           <section className="section"></section>
