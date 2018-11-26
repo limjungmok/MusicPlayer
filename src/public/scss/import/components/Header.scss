@@ -2,6 +2,7 @@
   .musicPlayer & {
     & {
       padding: 0 10px;
+      background-color: #000;
     }
     &.is_fixed {
       position: fixed;
@@ -9,7 +10,7 @@
       top: 0;
       left: 0;
       right: 0;
-      background-color: #000;
+      background-color: rgba(0, 0, 0, 0.9);
     }
     &.is_fixed + .wrap {
       padding-top: 48px;
@@ -17,11 +18,16 @@
     .logo {
       & {
         display: inline-block;
+        font-size: 25px;
+        font-weight: 900;
+        line-height: 48px;
+        color: #fff;
       }
-      &::before {
-        @include get-sprite(logo_2, $sp_app);
-        vertical-align: top;
-        content: '';
+      & i:first-child {
+        color: #e92d51;
+      }
+      & i:nth-child(2) {
+        color: pink;
       }
     }
   }

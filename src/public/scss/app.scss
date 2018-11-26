@@ -8,15 +8,17 @@
 @import "common/sprites";
 
 // components
-@import "import/components/Header";
 @import "import/components/Footer";
-@import "import/components/RecentMusicList.scss";
 @import "import/components/GenreList.scss";
+@import "import/components/Header";
+@import "import/components/MusicPlayer";
+@import "import/components/RecentMusicList.scss";
 
 html, body, #app {
   height: 100%;
   background-color: #000;
 }
+$music_player_height: 60px;
 .musicPlayer {
   & {
     display: flex;
@@ -26,16 +28,17 @@ html, body, #app {
   .header {
     flex-shrink: 1;
     height: 48px;
-    background-color: #000;
   }
   .wrap {
     flex-grow: 1;
+    box-sizing: border-box;
+    position: relative;
+    padding-bottom: $music_player_height;
     background-color: #000;
   }
   .footer {
     flex-shrink: 1;
     height: 48px;
-    background-color: #000;
   }
 }
 

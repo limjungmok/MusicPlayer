@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
 import Header from '../components/Header';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 import RecentMusicList from '../components/RecentMusicList';
 import GenreList from '../components/GenreList';
+import MusicPlayer from '../components/MusicPlayer';
 
 import RecentMusicJSONArray from '../../database/recentMusicArray.json';
 import GenreJSONArray from '../../database/genreArray.json';
@@ -15,12 +16,14 @@ class Main extends Component {
     super(props);
     this.state = {
       isScrolled: false,
+      isMusicPlayerListOpend: false,
       recentMusicArray: [],
       genreArray: []
     };
     this.handleScroll = this.handleScroll.bind(this);
     this.fetchRecentMusicArray = this.fetchRecentMusicArray.bind(this);
     this.fetchGenreArray = this.fetchGenreArray.bind(this);
+    this.handleOpenMusicList = this.handleOpenMusicList.bind(this);
   }
 
   async componentDidMount() {
@@ -44,6 +47,10 @@ class Main extends Component {
 
   fetchGenreArray() {
     return GenreJSONArray;
+  }
+
+  handleOpenMusicList() {
+    this.setState({ isMusicPlayerListOpend: !this.state.isMusicPlayerListOpend });
   }
 
   render() {
@@ -79,9 +86,10 @@ class Main extends Component {
               />
             )}
           </section>
-          <section className="section"></section>
+          <MusicPlayer 
+            handleOpenMusicList = {this.handleOpenMusicList}
+          />
         </div>
-        <Footer />
       </div>
     );
   }
