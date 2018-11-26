@@ -9,7 +9,7 @@ const RecentMusic = (props) => {
       <figure className="recent_profile">
         <img 
           src={thumbnail}
-          className="recent_img"
+          className="recent_thumbnail"
           alt=''
         />
       </figure>
