@@ -2,6 +2,7 @@
     .musicPlayer & {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+        margin-top: 15px;
         padding: 0 15px 10px;
         white-space: nowrap;
     }
@@ -10,8 +11,8 @@
             position: relative;
             display: inline-block;
             width: calc(100% - 12%);
-            margin-top: 15px;
             background-color: #f2f2f2;
+            vertical-align: top;
         }
         &:first-child {
             border-top-left-radius: 4px;
@@ -26,11 +27,12 @@
         }
         &::before {
             position: absolute;
+            z-index: 10;
             top: 0;
             right: 0;
             bottom: 0;
             left: 0;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.3);
             content: '';
         }
         &::after {
@@ -39,7 +41,7 @@
             right: 0;
             bottom: 0;
             left: 0;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             border-radius: inherit;
             content: '';
           }
@@ -48,7 +50,14 @@
           }
     }
     .recommend_thumbnail {
-
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
     .recommend_info {
         box-sizing: border-box;
@@ -57,21 +66,38 @@
         padding: 20px 0 0 30px;
     }
     .recommend_title {
+        position: relative;
+        z-index: 10;
         display: block;
         font-size: 18px;
         font-weight: 400;
         color: #fff;
     }
     .recommend_date {
+        position: relative;
+        z-index: 10;
         font-size: 16px;
         font-weight: 300;
         color: #f2f2f2;
     }
     .recommend_like {
-        
+        & {
+            position: relative;
+            z-index: 10;
+            margin-left: 4px;
+            color: #fff;
+        }
+        &::before {
+            @include get-sprite(recommends_recommend_like_before, $sp_app);
+            display: inline-block;
+            margin-right: 4px;
+            vertical-align: 1px;
+            content: '';
+        }
     }
     .recommend_count {
         position: absolute;
+        z-index: 10;
         right: 0;
         bottom: 0;
         padding: 0 10px;

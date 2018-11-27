@@ -9,6 +9,7 @@ import MusicPlayer from '../components/MusicPlayer';
 
 import RecentMusicJSONArray from '../../database/recentMusicArray.json';
 import GenreJSONArray from '../../database/genreArray.json';
+import RecommendMusicArray from '../../database/recommendMusicArray.json';
 
 import util from '../../utils/util';
 
@@ -20,11 +21,12 @@ class Main extends Component {
       isMusicPlayerListOpend: false,
       recentMusicArray: [],
       genreArray: [],
-      recommendArray: [...Array(12)]
+      recommendMusicArray: []
     };
     this.handleScroll = this.handleScroll.bind(this);
     this.fetchRecentMusicArray = this.fetchRecentMusicArray.bind(this);
     this.fetchGenreArray = this.fetchGenreArray.bind(this);
+    this.fetchRecommendMusicArray = this.fetchRecommendMusicArray.bind(this);
     this.handleOpenMusicList = this.handleOpenMusicList.bind(this);
   }
 
@@ -32,9 +34,11 @@ class Main extends Component {
     window.addEventListener('scroll', this.handleScroll);
     const recentMusicArray = await this.fetchRecentMusicArray();
     const genreArray = await this.fetchGenreArray();
+    const recommendMusicArray = await this.fetchRecommendMusicArray();
 
     this.setState({ recentMusicArray });
     this.setState({ genreArray });
+    this.setState({ recommendMusicArray });
   }
 
   handleScroll(e) {
@@ -49,6 +53,10 @@ class Main extends Component {
 
   fetchGenreArray() {
     return GenreJSONArray;
+  }
+
+  fetchRecommendMusicArray() {
+    return RecommendMusicArray;
   }
 
   handleOpenMusicList() {
@@ -96,7 +104,7 @@ class Main extends Component {
                 </a>
             </h2>
             <RecommendList
-              recommendArray = {this.state.recommendArray}
+              recommendMusicArray = {this.state.recommendMusicArray}
              />
           </section>
           <MusicPlayer 

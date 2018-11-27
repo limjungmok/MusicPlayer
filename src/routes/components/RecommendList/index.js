@@ -1,15 +1,15 @@
 import React from 'react';
 import Recommend from './Recommend';
 
-const RecommendList = ({ recommendArray }) => {
+const RecommendList = ({ recommendMusicArray }) => {
   return (
     <div className="recommends">
-    {recommendArray.map((recommend, i) => (
+      {recommendMusicArray.map((recommend, i) => (
         <Recommend 
-            recommend={recommend}
-            key={i}
+          recommend={recommend}
+          key={i}
         />
-    ))}
+      ))}
     </div>
   );
 };
