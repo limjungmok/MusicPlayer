@@ -2,38 +2,38 @@
   {
     "title": "ROCK",
     "thumbnail":"./images/genres/icon_rock.png",
-    "link": "#"
+    "link": "/genres/rock"
   },{
     "title": "BLUES",
     "thumbnail":"./images/genres/icon_blues.png",
-    "link": "#"
+    "link": "/genres/blues"
   },{
     "title": "R&B",
     "thumbnail":"./images/genres/icon_rnb.png",
-    "link": "#"
+    "link": "/genres/rnb"
   },{
     "title": "COUNTRY",
     "thumbnail":"./images/genres/icon_country.png",
-    "link": "#"
+    "link": "/genres/country"
   },{
     "title": "HIPHOP",
     "thumbnail":"./images/genres/icon_hiphop.png",
-    "link": "#"
+    "link": "/genres/hiphop"
   },{
     "title": "INDIE",
     "thumbnail":"./images/genres/icon_indie.png",
-    "link": "#"
+    "link": "/genres/indie"
   },{
     "title": "EDM",
     "thumbnail":"./images/genres/icon_edm.png",
-    "link": "#"
+    "link": "/genres/edm"
   },{
     "title": "METAL",
     "thumbnail":"./images/genres/icon_metal.png",
-    "link": "#"
+    "link": "/genres/metal"
   },{
     "title": "JAZZ",
     "thumbnail":"./images/genres/icon_jazz.png",
-    "link": "#"
+    "link": "/genres/jazz"
   }
 ]

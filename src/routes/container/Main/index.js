@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
+// import mongoose from 'mongoose';
 
-import Header from '../components/Header';
-// import Footer from '../components/Footer';
-import RecentMusicList from '../components/RecentMusicList';
-import GenreList from '../components/GenreList';
-import RecommendList from '../components/RecommendList'
-import MusicPlayer from '../components/MusicPlayer';
+import Header from '../../components/Header';
+// import Footer from '../../components/Footer';
+import RecentMusicList from '../../components/RecentMusicList';
+import GenreList from '../../components/GenreList';
+import RecommendList from '../../components/RecommendList'
+import MusicPlayer from '../../components/MusicPlayer';
 
-import RecentMusicJSONArray from '../../database/recentMusicArray.json';
-import GenreJSONArray from '../../database/genreArray.json';
-import RecommendMusicArray from '../../database/recommendMusicArray.json';
+import RecentMusicJSONArray from '../../../database/recentMusicArray.json';
+import GenreJSONArray from '../../../database/genreArray.json';
+import RecommendMusicArray from '../../../database/recommendMusicArray.json';
 
-import util from '../../utils/util';
+import util from '../../../utils/util';
+
+// mongoose.connect('mongodb://admin:admin1234@ds127948.mlab.com:27948/music-player');
 
 class Main extends Component {
   constructor(props) {
