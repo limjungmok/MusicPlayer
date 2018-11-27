@@ -1,6 +1,6 @@
 # Music Player
 
-MERN Stack ToyProject with MusicPlayer.  
+MERN Stack Toy project with MusicPlayer.  
 - Mongodb(mLab)
 - REST API with Express + Nodejs
 - React
