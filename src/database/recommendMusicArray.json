@@ -1,0 +1,21 @@
+[
+  {
+  "title": "Jazzyfact",
+  "like": "2240",
+  "thumbnail": "./images/albums/jazzyfact.jpg",
+  "link": "#",
+  "count": "12"
+  },{
+    "title": "Solo",
+    "like": "2344",
+    "thumbnail": "./images/albums/solo.jpg",
+    "link": "#",
+    "count": "6"
+  },{
+    "title": "BBIBBI",
+    "like": "23443",
+    "thumbnail": "./images/albums/bbibbi.jpg",
+    "link": "#",
+    "count": "8"
+  }
+]
