@@ -72,10 +72,7 @@ class Main extends Component {
         <div className="wrap">
           <section className="section">
             <h2 className="section_title">
-              <a 
-                href={'#'} 
-                className="section_anchor">최신 음악
-              </a>
+              <a href={'#'} className="section_anchor">최신 음악</a>
             </h2>
             {this.state.recents && (
               <RecentMusicList
@@ -85,10 +82,7 @@ class Main extends Component {
           </section>
           <section className="section">
             <h2 className="section_title">
-              <a 
-                href={'#'} 
-                className="section_anchor">장르
-              </a>
+              <a href={'#'} className="section_anchor">장르</a>
             </h2>
             {this.state.genres && (
               <GenreList 
@@ -98,10 +92,7 @@ class Main extends Component {
           </section>
           <section className="section">
             <h2 className="section_title">
-                <a 
-                  href={'#'} 
-                  className="section_anchor">추천 앨범
-                </a>
+              <a href={'#'} className="section_anchor">추천 앨범</a>
             </h2>
             {this.state.recommends && (
               <RecommendList
