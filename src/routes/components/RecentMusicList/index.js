@@ -1,9 +1,9 @@
 import React from 'react';
 import RecentMusic from './RecentMusic';
 
-const RecentMusicList = ({ recentMusicArray }) => (
+const RecentMusicList = ({ recents }) => (
   <div className="recents">
-    {recentMusicArray.map((recent, i) => (
+    {recents.map((recent, i) => (
       <RecentMusic 
         recent={recent}
         key={i}

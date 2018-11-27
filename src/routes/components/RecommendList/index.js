@@ -1,10 +1,10 @@
 import React from 'react';
 import Recommend from './Recommend';
 
-const RecommendList = ({ recommendMusicArray }) => {
+const RecommendList = ({ recommends }) => {
   return (
     <div className="recommends">
-      {recommendMusicArray.map((recommend, i) => (
+      {recommends.map((recommend, i) => (
         <Recommend 
           recommend={recommend}
           key={i}

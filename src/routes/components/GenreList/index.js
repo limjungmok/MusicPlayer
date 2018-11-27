@@ -1,9 +1,9 @@
 import React from 'react';
 import Genre from './Genre';
 
-const GenreList = ({ genreArray }) => (
+const GenreList = ({ genres }) => (
   <div className="genres">
-    {genreArray.map((genre, i) => (
+    {genres.map((genre, i) => (
       <Genre 
         genre={genre}
         key={i}

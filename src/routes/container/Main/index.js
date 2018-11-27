@@ -1,20 +1,11 @@
 import React, { Component } from 'react';
-// import mongoose from 'mongoose';
+import axios from 'axios';
 
 import Header from '../../components/Header';
-// import Footer from '../../components/Footer';
 import RecentMusicList from '../../components/RecentMusicList';
 import GenreList from '../../components/GenreList';
 import RecommendList from '../../components/RecommendList'
 import MusicPlayer from '../../components/MusicPlayer';
-
-import RecentMusicJSONArray from '../../../database/recentMusicArray.json';
-import GenreJSONArray from '../../../database/genreArray.json';
-import RecommendMusicArray from '../../../database/recommendMusicArray.json';
-
-import util from '../../../utils/util';
-
-// mongoose.connect('mongodb://admin:admin1234@ds127948.mlab.com:27948/music-player');
 
 class Main extends Component {
   constructor(props) {
@@ -22,26 +13,23 @@ class Main extends Component {
     this.state = {
       isScrolled: false,
       isMusicPlayerListOpend: false,
-      recentMusicArray: [],
-      genreArray: [],
-      recommendMusicArray: []
+      recents: [],
+      genres: [],
+      recommends: []
     };
     this.handleScroll = this.handleScroll.bind(this);
-    this.fetchRecentMusicArray = this.fetchRecentMusicArray.bind(this);
-    this.fetchGenreArray = this.fetchGenreArray.bind(this);
-    this.fetchRecommendMusicArray = this.fetchRecommendMusicArray.bind(this);
+    this.fetchRecents = this.fetchRecents.bind(this);
+    this.fetchGenres = this.fetchGenres.bind(this);
+    this.fetchRecommends = this.fetchRecommends.bind(this);
     this.handleOpenMusicList = this.handleOpenMusicList.bind(this);
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    const recentMusicArray = await this.fetchRecentMusicArray();
-    const genreArray = await this.fetchGenreArray();
-    const recommendMusicArray = await this.fetchRecommendMusicArray();
 
-    this.setState({ recentMusicArray });
-    this.setState({ genreArray });
-    this.setState({ recommendMusicArray });
+    this.fetchRecents();
+    this.fetchGenres();
+    this.fetchRecommends();  
   }
 
   handleScroll(e) {
@@ -50,16 +38,25 @@ class Main extends Component {
     : this.setState({ isScrolled: false });
   }
 
-  fetchRecentMusicArray() {
-    return RecentMusicJSONArray;
+  async fetchRecents() {
+    await axios.get('http://127.0.0.1:8000/recents').then(({ data }) => {
+      const recents = data;
+      this.setState({ recents });
+    });
   }
 
-  fetchGenreArray() {
-    return GenreJSONArray;
+  async fetchGenres() {
+    await axios.get('http://127.0.0.1:8000/genres').then(({ data }) => {
+      const genres = data;
+      this.setState({ genres });
+    });
   }
 
-  fetchRecommendMusicArray() {
-    return RecommendMusicArray;
+  async fetchRecommends() {
+    await axios.get('http://127.0.0.1:8000/recommends').then(({ data }) => {
+      const recommends = data;
+      this.setState({ recommends });
+    });
   }
 
   handleOpenMusicList() {
@@ -80,9 +77,9 @@ class Main extends Component {
                 className="section_anchor">최신 음악
               </a>
             </h2>
-            {this.state.recentMusicArray && (
+            {this.state.recents && (
               <RecentMusicList
-                recentMusicArray = {this.state.recentMusicArray}
+                recents = {this.state.recents}
               />
             )}
           </section>
@@ -93,9 +90,9 @@ class Main extends Component {
                 className="section_anchor">장르
               </a>
             </h2>
-            {this.state.genreArray && (
+            {this.state.genres && (
               <GenreList 
-                genreArray = {this.state.genreArray}
+                genres = {this.state.genres}
               />
             )}
           </section>
@@ -106,9 +103,11 @@ class Main extends Component {
                   className="section_anchor">추천 앨범
                 </a>
             </h2>
-            <RecommendList
-              recommendMusicArray = {this.state.recommendMusicArray}
-             />
+            {this.state.recommends && (
+              <RecommendList
+                recommends = {this.state.recommends}
+              />
+            )}
           </section>
           <MusicPlayer 
             handleOpenMusicList = {this.handleOpenMusicList}
