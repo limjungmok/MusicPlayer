@@ -1,12 +1,14 @@
 # Music Player
 
 MERN Stack ToyProject with MusicPlayer.  
-
-Setting sass-loader, webpack-spritesmith (& redux)
+- Mongodb(mLab)
+- REST API with Express + Nodejs
+- React
+- Webpack (for sass, sprite-smith)
 
 # API
 
-[MusicPlayer API](https://github.com/limjungmok/API_MusicPlayer)  
+[MusicPlayer API Server Repository](https://github.com/limjungmok/API_MusicPlayer)  
 [MusicPlayer Issues](https://github.com/limjungmok/MusicPlayer/issues)
 
   
