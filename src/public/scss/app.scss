@@ -19,6 +19,10 @@ html, body, #app {
   height: 100%;
   background-color: #000;
 }
+body {
+  max-width: 750px;
+  margin: 0 auto;
+}
 $music_player_height: 60px;
 .musicPlayer {
   & {

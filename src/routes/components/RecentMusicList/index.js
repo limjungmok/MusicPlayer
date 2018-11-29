@@ -1,12 +1,13 @@
 import React from 'react';
 import RecentMusic from './RecentMusic';
 
-const RecentMusicList = ({ recents }) => (
+const RecentMusicList = ({ handleSelectMusic, recents }) => (
   <div className="recents">
-    {recents.map((recent, i) => (
+    {recents.map((recent, index) => (
       <RecentMusic 
-        recent={recent}
-        key={i}
+        recent = {recent}
+        handleSelectMusic = {handleSelectMusic}
+        key = {index}
       />
     ))}
   </div>

@@ -4,12 +4,12 @@ const Recommend = (props) => {
   const { title, like, thumbnail, link, count } = props.recommend;
   return (
     <a 
-        href={link}
+        href = {link}
         className="recommend"
         >
         <figure className="recommend_info">
             <img 
-                src={thumbnail}
+                src = {thumbnail}
                 className="recommend_thumbnail"
                 alt=''
             />

@@ -2,13 +2,19 @@ import React from 'react';
 
 const RecentMusic = (props) => {
   const { title, artist, thumbnail } = props.recent;
+  const handleClick = (e) => {
+    e.preventDefault();
+    props.handleSelectMusic(props.recent);
+  }
+
   return (
     <a 
       href="#" 
+      onClick = {handleClick}
       className="recent">
       <figure className="recent_profile">
         <img 
-          src={thumbnail}
+          src = {thumbnail}
           className="recent_thumbnail"
           alt=''
         />

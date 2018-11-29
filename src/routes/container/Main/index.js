@@ -12,16 +12,17 @@ class Main extends Component {
     super(props);
     this.state = {
       isScrolled: false,
-      isMusicPlayerListOpend: false,
+      isMusicPlaying: false,
       recents: [],
       genres: [],
-      recommends: []
+      recommends: [],
+      currentMusic: null
     };
     this.handleScroll = this.handleScroll.bind(this);
     this.fetchRecents = this.fetchRecents.bind(this);
     this.fetchGenres = this.fetchGenres.bind(this);
     this.fetchRecommends = this.fetchRecommends.bind(this);
-    this.handleOpenMusicList = this.handleOpenMusicList.bind(this);
+    this.handleSelectMusic = this.handleSelectMusic.bind(this);
   }
 
   componentDidMount() {
@@ -59,8 +60,13 @@ class Main extends Component {
     });
   }
 
-  handleOpenMusicList() {
-    this.setState({ isMusicPlayerListOpend: !this.state.isMusicPlayerListOpend });
+  handleSelectMusic(music) {
+    const currentMusic = {
+      title: music.title,
+      artist: music.artist,
+      thumbnail: music.thumbnail
+    };
+    this.setState({ currentMusic });
   }
 
   render() {
@@ -77,6 +83,7 @@ class Main extends Component {
             {this.state.recents && (
               <RecentMusicList
                 recents = {this.state.recents}
+                handleSelectMusic = {(e) => this.handleSelectMusic(e)}
               />
             )}
           </section>
@@ -101,7 +108,8 @@ class Main extends Component {
             )}
           </section>
           <MusicPlayer 
-            handleOpenMusicList = {this.handleOpenMusicList}
+            isMusicPlaying = {this.state.isMusicPlaying}
+            currentMusic = {this.state.currentMusic}
           />
         </div>
       </div>

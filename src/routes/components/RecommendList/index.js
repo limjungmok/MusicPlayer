@@ -4,10 +4,10 @@ import Recommend from './Recommend';
 const RecommendList = ({ recommends }) => {
   return (
     <div className="recommends">
-      {recommends.map((recommend, i) => (
+      {recommends.map((recommend, index) => (
         <Recommend 
-          recommend={recommend}
-          key={i}
+          recommend = {recommend}
+          key = {index}
         />
       ))}
     </div>
