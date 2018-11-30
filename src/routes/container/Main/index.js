@@ -12,11 +12,11 @@ class Main extends Component {
     super(props);
     this.state = {
       isScrolled: false,
-      isMusicPlaying: false,
       recents: [],
       genres: [],
       recommends: [],
-      currentMusic: null
+      currentMusic: null,
+      isPlaying: false
     };
     this.handleScroll = this.handleScroll.bind(this);
     this.fetchRecents = this.fetchRecents.bind(this);
@@ -61,10 +61,13 @@ class Main extends Component {
   }
 
   handleSelectMusic(music) {
+    console.log(music);
     const currentMusic = {
       title: music.title,
       artist: music.artist,
-      thumbnail: music.thumbnail
+      thumbnail: music.thumbnail,
+      duration: music.playtime,
+      playtime: 0
     };
     this.setState({ currentMusic });
   }
@@ -108,8 +111,9 @@ class Main extends Component {
             )}
           </section>
           <MusicPlayer 
-            isMusicPlaying = {this.state.isMusicPlaying}
+            isPlaying = {this.state.isPlaying}
             currentMusic = {this.state.currentMusic}
+            currentPlayingTime = {this.state.currentPlayingTime}
           />
         </div>
       </div>

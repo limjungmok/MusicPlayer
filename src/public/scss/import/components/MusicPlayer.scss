@@ -11,6 +11,20 @@
     padding: 10px 15px;
     background-color: rgba(#131313, 0.9);
   }
+  .player_gauge {
+    position: absolute;
+    top: $music_player_gauge * (-1);
+    left: 0;
+    right: 0;
+    height: $music_player_gauge;
+  }
+  .player_gauge_value {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+  }
   .player_profile {
     flex-shrink: 1;
     width: 40px;

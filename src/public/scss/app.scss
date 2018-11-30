@@ -7,14 +7,6 @@
 @import "common/mixins";
 @import "common/sprites";
 
-// components
-@import "import/components/Footer";
-@import "import/components/GenreList";
-@import "import/components/Header";
-@import "import/components/MusicPlayer";
-@import "import/components/RecentMusicList";
-@import "import/components/RecommendList";
-
 html, body, #app {
   height: 100%;
   background-color: #000;
@@ -24,6 +16,7 @@ body {
   margin: 0 auto;
 }
 $music_player_height: 60px;
+$music_player_gauge: 2px;
 .musicPlayer {
   & {
     display: flex;
@@ -38,7 +31,7 @@ $music_player_height: 60px;
     flex-grow: 1;
     box-sizing: border-box;
     position: relative;
-    padding-bottom: $music_player_height;
+    padding-bottom: $music_player_height + $music_player_gauge;
     background-color: #000;
   }
   .footer {
@@ -47,6 +40,13 @@ $music_player_height: 60px;
   }
 }
 
+// components
+@import "import/components/Footer";
+@import "import/components/GenreList";
+@import "import/components/Header";
+@import "import/components/MusicPlayer";
+@import "import/components/RecentMusicList";
+@import "import/components/RecommendList";
 // container
 @import "import/container/Main";
 @import "import/container/PlayList";
