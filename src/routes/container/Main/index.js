@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
 import Header from '../../components/Header';
@@ -15,7 +16,7 @@ class Main extends Component {
       recents: [],
       genres: [],
       recommends: [],
-      currentMusic: null,
+      currentMusic: {},
       isPlaying: false
     };
     this.handleScroll = this.handleScroll.bind(this);
@@ -61,7 +62,6 @@ class Main extends Component {
   }
 
   handleSelectMusic(music) {
-    console.log(music);
     const currentMusic = {
       title: music.title,
       artist: music.artist,

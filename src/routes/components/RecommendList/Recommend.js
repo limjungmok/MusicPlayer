@@ -1,24 +1,25 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
 
 const Recommend = (props) => {
-  const { title, like, thumbnail, link, count } = props.recommend;
+  const { _id, title, like, thumbnail, link, count } = props.recommend;
   return (
-    <a 
-        href = {link}
+    <Link 
+        to={`/album/${_id}`}
         className="recommend"
-        >
-        <figure className="recommend_info">
-            <img 
-                src = {thumbnail}
-                className="recommend_thumbnail"
-                alt=''
-            />
-            <b className="recommend_title">{title}</b>
-            <i className="recommend_date">{'2018.11.27'}</i>
-            <i className="recommend_like">{like}</i>
-            <i className="recommend_count">{count}</i>
+    >
+      <figure className="recommend_info">
+        <img 
+          src = {thumbnail}
+          className="recommend_thumbnail"
+           alt=''
+        />
+        <b className="recommend_title">{title}</b>
+        <i className="recommend_date">{'2018.11.27'}</i>
+        <i className="recommend_like">{like}</i>
+        <i className="recommend_count">{count}</i>
         </figure>
-    </a>
+    </Link>
   );
 };
 
