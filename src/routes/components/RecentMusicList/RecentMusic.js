@@ -8,8 +8,8 @@ const RecentMusic = (props) => {
   }
 
   return (
-    <a 
-      href="#" 
+    <a
+      href="#"
       onClick = {handleClick}
       className="recent">
       <figure className="recent_profile">

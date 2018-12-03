@@ -106,8 +106,13 @@
         padding: 0 10px;
         font-size: 14px;
         line-height: 30px;
-        color: #fff;
+        color: #fff; 
+        border-radius: inherit;
         background-color: rgba(0, 0, 0, 0.8);
         pointer-events: none;
+    }
+    .loading {
+        @extend %common_loading;
+        height: 186px;
     }
 }
