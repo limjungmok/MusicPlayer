@@ -42,6 +42,7 @@ const MusicPlayer = (props) => {
       <div className="player_info">
         {playerInfo(isPlaying, currentMusic)}
       </div>
+      <span style={{color: 'white'}}>{currentMusic.playtime}:{currentMusic.duration}</span>
       <button 
         className="player_more" 
         aria-label="재생목록" 

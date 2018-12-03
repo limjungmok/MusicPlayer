@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { cloneDeep } from 'lodash';
 import axios from 'axios';
 
 
@@ -8,6 +9,8 @@ import GenreList from '../../components/GenreList';
 import RecommendList from '../../components/RecommendList'
 import MusicPlayer from '../../components/MusicPlayer';
 
+const _PLAYER_INTERVAL = 1000;
+
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -16,11 +19,11 @@ class Main extends Component {
       isRecentsLoaded: false,
       isGenresLoaded: false,
       isRecommendsLoaded: false,
+      isPlaying: false,
       recents: [],
       genres: [],
       recommends: [],
       currentMusic: {},
-      isPlaying: false,
       timerId: null
     };
     this.handleScroll = this.handleScroll.bind(this);
@@ -42,12 +45,45 @@ class Main extends Component {
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
     clearInterval(this.state.timerId);
+    clearTimeout(this.state.timerId);
   }
 
   componentDidUpdate() {
     if(this.state.isPlaying) {
+      clearTimeout(this.state.timerId);
       this._playMusic();
     }
+  }
+
+  _playMusic() {
+    const currentMusic = cloneDeep(this.state.currentMusic);
+    const duration = currentMusic.duration;
+    let playtime = currentMusic.playtime;
+    let timerId = this.state.timerId || null;
+    
+    const countUp = () => {
+      if(playtime < duration) {
+        playtime++;
+        console.log(timerId);
+        clearTimeout(timerId);
+
+        timerId = setTimeout(() => {
+          countUp();
+          this.setState({
+            timerId
+          })
+        }, _PLAYER_INTERVAL);
+        
+      } else {
+        clearTimeout(timerId);
+      }
+    }
+    timerId = setTimeout(() => {
+      countUp();
+      this.setState({
+        timerId
+      })
+    }, _PLAYER_INTERVAL);
   }
 
   handleScroll(e) {
@@ -99,30 +135,6 @@ class Main extends Component {
       isPlaying: true
     });
   }
-
-  _playMusic() {
-    console.log(this.state)
-  }
-
-  // _playMusic() {
-  //   const interval = 1000;
-  //   let {currentMusic} = this.state.currentMusic;
-  //   let {timerId} = this.state.timerId || 0;
-  //   console.log({currentMusic}, timerId)
-
-  //   function counterUp() {
-  //     if(currentMusic.playtime < currentMusic.duration) {
-  //       timerId = setTimeout(counterUp(), interval);
-  //       currentMusic.playtime++;
-  //       this.setState({
-  //         currentMusic,
-  //         timerId
-  //       })
-  //     } else {
-  //       clearTimeout(timerId);
-  //     }
-  //   }
-  // }
 
 
   render() {
