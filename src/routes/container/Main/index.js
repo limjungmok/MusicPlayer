@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-
 import Header from '../../components/Header';
 import RecentMusicList from '../../components/RecentMusicList';
 import GenreList from '../../components/GenreList';
 import RecommendList from '../../components/RecommendList'
 import MusicPlayer from '../../components/MusicPlayer';
+
+const API_BASE_URL = 'http://127.0.0.1:8000';
 
 class Main extends Component {
   constructor(props) {
@@ -52,12 +53,12 @@ class Main extends Component {
 
   handleScroll(e) {
     window.scrollY > 0 
-    ? this.setState({ isScrolled: true }) 
+    ? this.setState({ isScrolled: true })
     : this.setState({ isScrolled: false });
   }
 
   async fetchRecents() {
-    await axios.get('http://127.0.0.1:8000/recents').then(({ data }) => {
+    await axios.get(`${API_BASE_URL}/recents`).then(({ data }) => {
       const recents = data;
       this.setState({ 
         isRecentsLoaded: true,
@@ -67,7 +68,7 @@ class Main extends Component {
   }
 
   async fetchGenres() {
-    await axios.get('http://127.0.0.1:8000/genres').then(({ data }) => {
+    await axios.get(`${API_BASE_URL}/genres`).then(({ data }) => {
       const genres = data;
       this.setState({ 
         isGenresLoaded: true,
@@ -77,7 +78,7 @@ class Main extends Component {
   }
 
   async fetchRecommends() {
-    await axios.get('http://127.0.0.1:8000/recommends').then(({ data }) => {
+    await axios.get(`${API_BASE_URL}/recommends`).then(({ data }) => {
       const recommends = data;
       this.setState({ 
         isRecommendsLoaded: true,
